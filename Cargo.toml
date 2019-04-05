@@ -1,0 +1,8 @@
+[package]
+name = "roguelike"
+version = "0.1.0"
+authors = ["Josh Burgess <jburgess@whiteoctober.co.uk>"]
+edition = "2018"
+
+[dependencies]
+doryen-rs = "1.0.1"
