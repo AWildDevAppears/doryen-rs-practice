@@ -4,6 +4,7 @@ use doryen_rs::{App, AppOptions, DoryenApi, Engine, TextAlign};
 
 const WINDOW_WIDTH: u32 = 80;
 const WINDOW_HEIGHT: u32 = 45;
+const ICON_SIZE: u32 = 16;
 
 struct Game {
     player_pos: (i32, i32),
@@ -87,10 +88,10 @@ fn main() {
     let mut app = App::new(AppOptions {
         console_width: WINDOW_WIDTH,
         console_height: WINDOW_HEIGHT,
-        screen_width: WINDOW_WIDTH * 8,
-        screen_height: WINDOW_HEIGHT * 8,
+        screen_width: WINDOW_WIDTH * ICON_SIZE,
+        screen_height: WINDOW_HEIGHT * ICON_SIZE,
         window_title: "Roguelike".to_owned(),
-        font_path: "terminal_16x16.png".to_owned(),
+        font_path: "terminal_10x16.png".to_owned(),
         vsync: true,
         fullscreen: false,
         show_cursor: true,
