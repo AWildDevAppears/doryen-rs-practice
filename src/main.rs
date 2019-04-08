@@ -13,7 +13,7 @@ fn main() {
         console_height: WINDOW_HEIGHT,
         screen_width: SCREEN_WIDTH,
         screen_height: SCREEN_HEIGHT,
-        window_title: "Roguelike".to_owned(),
+        window_title: "No Mans Land".to_owned(),
         font_path: "terminal_10x16.png".to_owned(),
         vsync: true,
         fullscreen: false,

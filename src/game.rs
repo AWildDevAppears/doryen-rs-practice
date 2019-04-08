@@ -1,5 +1,5 @@
 use doryen_rs::{DoryenApi, Engine};
-use super::config::{WINDOW_WIDTH, WINDOW_HEIGHT};
+use super::config::{WINDOW_WIDTH, WINDOW_HEIGHT, MOVE_SPEED};
 use super::entities::Character;
 
 pub struct Game {
@@ -17,19 +17,19 @@ impl Engine for Game {
         let input = api.input();
 
         if input.key("ArrowLeft") {
-            self.player.pos.0 = (self.player.pos.0 - 1).max(1);
+            self.player.pos.0 = (self.player.pos.0 - MOVE_SPEED).max(1);
         }
 
         if input.key("ArrowRight") {
-            self.player.pos.0 = (self.player.pos.0 + 1).min(WINDOW_WIDTH as i32 - 2);
+            self.player.pos.0 = (self.player.pos.0 + MOVE_SPEED).min(WINDOW_WIDTH as i32 - 2);
         }
 
         if input.key("ArrowUp") {
-            self.player.pos.1 = (self.player.pos.1 - 1).max(1);
+            self.player.pos.1 = (self.player.pos.1 - MOVE_SPEED).max(1);
         }
 
         if input.key("ArrowDown") {
-            self.player.pos.1 = (self.player.pos.1 + 1).min(WINDOW_HEIGHT as i32 - 2);
+            self.player.pos.1 = (self.player.pos.1 + MOVE_SPEED).min(WINDOW_HEIGHT as i32 - 2);
         }
     }
 

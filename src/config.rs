@@ -6,3 +6,5 @@ const ICON_HEIGHT: u32 = 16;
 
 pub const SCREEN_WIDTH: u32 = WINDOW_WIDTH * ICON_WIDTH;
 pub const SCREEN_HEIGHT: u32 = WINDOW_HEIGHT * ICON_HEIGHT;
+
+pub const MOVE_SPEED: i32 = 1;
