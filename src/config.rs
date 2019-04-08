@@ -1,0 +1,8 @@
+pub const WINDOW_WIDTH: u32 = 80;
+pub const WINDOW_HEIGHT: u32 = 45;
+
+const ICON_WIDTH: u32 = 10;
+const ICON_HEIGHT: u32 = 16;
+
+pub const SCREEN_WIDTH: u32 = WINDOW_WIDTH * ICON_WIDTH;
+pub const SCREEN_HEIGHT: u32 = WINDOW_HEIGHT * ICON_HEIGHT;
