@@ -1,14 +1,9 @@
-    pub const WINDOW_WIDTH: u32 = 80;
-pub const WINDOW_HEIGHT: u32 = 45;
-pub const ICON_WIDTH: u32 = 10;
-pub const ICON_HEIGHT: u32 = 16;
-
-extern crate doryen_rs;
-
 use doryen_rs::{DoryenApi, Engine};
+use super::config::{WINDOW_WIDTH, WINDOW_HEIGHT};
+use super::entities::Character;
 
 pub struct Game {
-    player_pos: (i32, i32),
+    player: Character,
 }
 
 impl Engine for Game {
@@ -22,19 +17,19 @@ impl Engine for Game {
         let input = api.input();
 
         if input.key("ArrowLeft") {
-            self.player_pos.0 = (self.player_pos.0 - 1).max(1);
+            self.player.pos.0 = (self.player.pos.0 - 1).max(1);
         }
 
         if input.key("ArrowRight") {
-            self.player_pos.0 = (self.player_pos.0 + 1).min(WINDOW_WIDTH as i32 - 2);
+            self.player.pos.0 = (self.player.pos.0 + 1).min(WINDOW_WIDTH as i32 - 2);
         }
 
         if input.key("ArrowUp") {
-            self.player_pos.1 = (self.player_pos.1 - 1).max(1);
+            self.player.pos.1 = (self.player.pos.1 - 1).max(1);
         }
 
         if input.key("ArrowDown") {
-            self.player_pos.1 = (self.player_pos.1 + 1).min(WINDOW_HEIGHT as i32 - 2);
+            self.player.pos.1 = (self.player.pos.1 + 1).min(WINDOW_HEIGHT as i32 - 2);
         }
     }
 
@@ -61,8 +56,8 @@ impl Engine for Game {
             Some('&' as u16),
         );
 
-        con.ascii(self.player_pos.0, self.player_pos.1, '@' as u16);
-        con.fore(self.player_pos.0, self.player_pos.1, (255, 255, 255, 255));
+        con.ascii(self.player.pos.0, self.player.pos.1, '@' as u16);
+        con.fore(self.player.pos.0, self.player.pos.1, (255, 255, 255, 255));
     }
 
     fn resize(&mut self, _api: &mut DoryenApi) {}
@@ -71,7 +66,10 @@ impl Engine for Game {
 impl Game {
     pub fn new() -> Self {
         Self {
-            player_pos: ((WINDOW_WIDTH / 2) as i32, (WINDOW_HEIGHT / 2) as i32),
+            player: Character {
+                pos: ((WINDOW_WIDTH / 2) as i32, (WINDOW_HEIGHT / 2) as i32),
+                health: 100,
+            },
         }
     }
 }
