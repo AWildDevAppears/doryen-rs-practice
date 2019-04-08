@@ -56,8 +56,7 @@ impl Engine for Game {
             Some('&' as u16),
         );
 
-        con.ascii(self.player.pos.0, self.player.pos.1, '@' as u16);
-        con.fore(self.player.pos.0, self.player.pos.1, (255, 255, 255, 255));
+        self.player.draw_sprite(con);
     }
 
     fn resize(&mut self, _api: &mut DoryenApi) {}
@@ -69,6 +68,7 @@ impl Game {
             player: Character {
                 pos: ((WINDOW_WIDTH / 2) as i32, (WINDOW_HEIGHT / 2) as i32),
                 health: 100,
+                sprite: '@' as u16,
             },
         }
     }
