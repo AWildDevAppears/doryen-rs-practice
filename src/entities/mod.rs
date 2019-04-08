@@ -1,11 +1,12 @@
+extern crate doryen_rs;
+
+use doryen_rs::Console;
+
 pub struct Character {
     pub pos: (i32, i32),
     pub health: i32,
     pub sprite: u16,
 }
-extern crate doryen_rs;
-
-use doryen_rs::Console;
 
 impl Character {
      pub fn draw_sprite(&mut self, con: &mut Console) {

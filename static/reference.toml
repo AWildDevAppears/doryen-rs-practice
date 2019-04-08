@@ -1,0 +1,18 @@
+[reference]
+empty = "."
+wall = "="
+upwards_stairs = "^"
+downwards_stairs = "v"
+
+[reference.doors]
+door = "#"
+double_door = "##"
+garage_door = "####" # min = 4, max inf
+
+[reference.objects]
+desk = "--"
+sotrage_unit = "[]"
+
+[refernce.characters]
+player = "@"
+
