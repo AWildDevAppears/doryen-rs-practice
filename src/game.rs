@@ -17,19 +17,19 @@ impl Engine for Game {
         let input = api.input();
 
         if input.key("ArrowLeft") {
-            self.player.pos.0 = (self.player.pos.0 - MOVE_SPEED).max(1);
+            self.player.move_left(MOVE_SPEED, 1);
         }
 
         if input.key("ArrowRight") {
-            self.player.pos.0 = (self.player.pos.0 + MOVE_SPEED).min(WINDOW_WIDTH as i32 - 2);
+            self.player.move_right(MOVE_SPEED, WINDOW_WIDTH as i32 - 2);
         }
 
         if input.key("ArrowUp") {
-            self.player.pos.1 = (self.player.pos.1 - MOVE_SPEED).max(1);
+            self.player.move_up(MOVE_SPEED, 1);
         }
 
         if input.key("ArrowDown") {
-            self.player.pos.1 = (self.player.pos.1 + MOVE_SPEED).min(WINDOW_HEIGHT as i32 - 2);
+            self.player.move_down(MOVE_SPEED, WINDOW_HEIGHT as i32 - 2);
         }
     }
 
@@ -44,16 +44,6 @@ impl Engine for Game {
             Some((128, 128, 128, 255)),
             None,
             Some('.' as u16),
-        );
-
-        con.area(
-            10,
-            10,
-            5,
-            5,
-            Some((255, 64, 64, 255)),
-            Some((128, 32, 32, 255)),
-            Some('&' as u16),
         );
 
         self.player.draw_sprite(con);
